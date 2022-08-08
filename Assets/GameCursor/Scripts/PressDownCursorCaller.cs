@@ -1,15 +1,18 @@
-﻿namespace GameCursor
+﻿using UnityEngine.EventSystems;
+
+namespace GameCursor
 {
     /// <summary>
-    /// Активация курора при нажатии на объект
+    /// Вызов смены курсора при нажатии
     /// </summary>
-    public class PressDownCursorCaller : AbstractCursorCaller
+    public class PressDownCursorCaller : AbstractCursorCaller, IPointerDownHandler, IPointerExitHandler, IPointerUpHandler
     {
         private bool isPressed;
 
-        private void OnMouseDown() => SwitchOn();
-        private void OnMouseExit() => SwitchOff();
-        private void OnMouseUp() => SwitchOff();
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData) => SwitchOff();
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData) => SwitchOn();
+        void IPointerUpHandler.OnPointerUp(PointerEventData eventData) => SwitchOff();
+
         protected override void SwitchOff()
         {
             if (isPressed)

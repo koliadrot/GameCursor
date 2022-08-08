@@ -251,7 +251,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 693942909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c5fce7aaf0beb4388f268eb3a7f1dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 43071965b47ef2d45ab29a7fc58f2841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cursorData: {fileID: 11400000, guid: e6af2e36b2f723f4d912ce9a381e8a5e, type: 2}
@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 1100000568}
   - component: {fileID: 1100000567}
   - component: {fileID: 1100000566}
+  - component: {fileID: 1100000569}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -654,6 +655,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1100000569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100000565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &1281415646
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +700,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1281415646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31045f9749c0c504f8694ece88eb30cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 518eef3ab5f77d045947cf056918f55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cursorData: {fileID: 11400000, guid: 49d47b27d88888e45816712ba4a828d4, type: 2}

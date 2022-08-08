@@ -1,15 +1,16 @@
-﻿namespace GameCursor
+﻿using UnityEngine.EventSystems;
+
+namespace GameCursor
 {
     /// <summary>
-    /// Изменяет курсор при наведении на объект
+    /// Вызов смены курсора при входе
     /// </summary>
-    public class EnterCursorCaller : AbstractCursorCaller
+    public class EnterCursorCaller : AbstractCursorCaller, IPointerEnterHandler, IPointerExitHandler
     {
-        private void OnMouseEnter() => SwitchOn();
-        private void OnMouseExit() => SwitchOff();
-
         protected override void SwitchOff() => OnDisabledCursor();
-
         protected override void SwitchOn() => OnEnabledCursor(cursorData);
+
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData) => SwitchOn();
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData) => SwitchOff();
     }
 }

@@ -12,6 +12,8 @@ namespace GameCursor
     {
         [SerializeField]
         private CursorData defaultCursor;
+        [SerializeField]
+        private Camera cam;
 
         private float frameTimer;
         private int currentFrame;
