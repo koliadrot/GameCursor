@@ -1,9 +1,9 @@
-using UnityEngine;
-
-namespace GameCursor
+п»їnamespace GameDev.GameCursor
 {
+    using UnityEngine;
+
     /// <summary>
-    /// Синглтон
+    /// РЎРёРЅРіР»С‚РѕРЅ
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class MonoBehaviourSingletonPersistent<T> : MonoBehaviour where T : Component

@@ -1,13 +1,13 @@
-﻿using UnityEngine.EventSystems;
-
-namespace GameCursor
+﻿namespace GameDev.GameCursor
 {
+    using UnityEngine.EventSystems;
+
     /// <summary>
     /// Вызов смены курсора при нажатии
     /// </summary>
     public class PressDownCursorCaller : AbstractCursorCaller, IPointerDownHandler, IPointerExitHandler, IPointerUpHandler
     {
-        private bool isPressed;
+        private bool isPressed = default;
 
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData) => SwitchOff();
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData) => SwitchOn();
@@ -17,14 +17,14 @@ namespace GameCursor
         {
             if (isPressed)
             {
-                OnDisabledCursor();
+                OnDisabledCursorEvent();
                 isPressed = false;
             }
         }
 
         protected override void SwitchOn()
         {
-            OnEnabledCursor(cursorData);
+            OnEnabledCursorEvent(cursorData);
             isPressed = true;
         }
     }

@@ -1,37 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-
-namespace GameCursor
+﻿namespace GameDev.GameCursor
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using UnityEngine;
+
     /// <summary>
     /// Контроллер курсора
     /// </summary>
     public class CursorController : MonoBehaviourSingletonPersistent<CursorController>
     {
-        [SerializeField]
-        private CursorData defaultCursor;
-        [SerializeField]
-        private Camera cam;
+        [Header("Данные курсора по-умолчанию:"), SerializeField]
+        private CursorData defaultCursor = default;
+        [Header("Камера для обработки 3д касаний:"), SerializeField]
+        private Camera mainCamera = default;
 
-        private float frameTimer;
-        private int currentFrame;
+        private float frameTimer = default;
+        private int currentFrame = default;
         private List<CursorData> cursorDatas = new List<CursorData>();
-        private Coroutine coroutine;
+        private Coroutine coroutine = default;
 
         private void Start()
         {
             EnableCursor(defaultCursor);
-            AbstractCursorCaller.onEnabledCursor += EnableCursor;
-            AbstractCursorCaller.onDisabledCursor += DisableCursor;
+            AbstractCursorCaller.OnEnabledCursor += EnableCursor;
+            AbstractCursorCaller.OnDisabledCursor += DisableCursor;
         }
 
         private void OnDestroy()
         {
             StopAnimation();
-            AbstractCursorCaller.onEnabledCursor -= EnableCursor;
-            AbstractCursorCaller.onDisabledCursor -= DisableCursor;
+            AbstractCursorCaller.OnEnabledCursor -= EnableCursor;
+            AbstractCursorCaller.OnDisabledCursor -= DisableCursor;
         }
 
         private void EnableCursor(CursorData cursorData)
